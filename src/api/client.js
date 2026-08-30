@@ -1,5 +1,15 @@
 const BASE = "/api";
 
+function authHeaders() {
+  const token = localStorage.getItem("authToken");
+
+  return token
+    ? {
+        Authorization: `Bearer ${token}`,
+      }
+    : {};
+}
+
 async function handleResponse(response) {
   const data = await response.json().catch(() => ({}));
 
@@ -25,5 +35,14 @@ export const api = {
         email,
         password,
       }),
+    }).then(handleResponse),
+
+  requestVotingToken: () =>
+    fetch(`${BASE}/voting/token`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...authHeaders(),
+      },
     }).then(handleResponse),
 };

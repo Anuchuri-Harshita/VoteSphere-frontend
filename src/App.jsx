@@ -7,6 +7,8 @@ import {
 
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
+import Register from "./pages/Register";
+import Token from "./pages/Token";
 
 function App() {
   return (
@@ -24,6 +26,16 @@ function App() {
           element={<Login />}
         />
 
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+        
+        <Route
+          path="/token"
+          element={<Token />}
+        />
+        
         <Route
           path="/forgot-password"
           element={<ForgotPassword />}
