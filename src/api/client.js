@@ -45,4 +45,22 @@ export const api = {
         ...authHeaders(),
       },
     }).then(handleResponse),
+
+  listParties: () =>
+    fetch(`${BASE}/parties`, {
+      method: "GET",
+    }).then(handleResponse),
+
+  castVote: (votingToken, partyId) =>
+    fetch(`${BASE}/voting/cast`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        votingToken,
+        partyId,
+      }),
+    }).then(handleResponse),
+
 };

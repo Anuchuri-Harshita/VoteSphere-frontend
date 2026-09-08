@@ -101,7 +101,11 @@ function Token() {
 
               <button
                 className="sign-btn"
-                onClick={() => navigate("/ballot")}
+                onClick={() =>
+                  navigate("/ballot", {
+                    state: { votingToken: votingToken },
+                  })
+                }
               >
                 Continue to Ballot
               </button>

@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
 import Token from "./pages/Token";
+import Ballot from "./pages/Ballot";
+import Receipt from "./pages/Receipt";
 
 function App() {
   return (
@@ -40,7 +42,17 @@ function App() {
           path="/forgot-password"
           element={<ForgotPassword />}
         />
+        <Route
+          path="/ballot"
+          element={<Ballot />}
+        />
 
+        <Route
+          path="/receipt"
+          element={<Receipt />}
+        />
+         
+        
       </Routes>
 
     </BrowserRouter>
